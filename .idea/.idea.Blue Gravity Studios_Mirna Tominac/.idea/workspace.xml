@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b7e5f00-addc-49d5-8aa6-2d0742428a0c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blue Gravity Studios_Mirna Tominac/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blue Gravity Studios_Mirna Tominac/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ShopScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ShopScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/ClothItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/ClothItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Items/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Items/ItemData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerClothingManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerClothingManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
-    </list>
+    <list default="true" id="5b7e5f00-addc-49d5-8aa6-2d0742428a0c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,7 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1719997788393</updated>
       <workItem from="1719997790129" duration="6034000" />
-      <workItem from="1720013829645" duration="23559000" />
+      <workItem from="1720013829645" duration="24161000" />
     </task>
     <servers />
   </component>
