@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         SetMovementVelocity();
-        FlipPlayer();
+        FlipPlayer(_movementInput.x < 0);
         UpdateAnimator();
     }
 
@@ -35,13 +35,13 @@ public class PlayerMovement : MonoBehaviour
         _movementInput = inputValue.Get<Vector2>();
     }
 
-    private void FlipPlayer()
+    private void FlipPlayer(bool reversed)
     {
-        if (_movementInput.x < 0)
+        if (reversed)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else if (_movementInput.x > 0)
+        else
         {
             transform.localScale = new Vector3(1, 1, 1);
         }

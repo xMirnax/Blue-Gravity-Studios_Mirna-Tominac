@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Clothing", menuName = "Cloth")]
 public class ClothItem : ItemData
 {
-    public Sprite sprite;
     public ClothPart clothPart;
 }
 

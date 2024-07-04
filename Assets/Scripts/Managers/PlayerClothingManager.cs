@@ -37,22 +37,19 @@ public class PlayerClothingManager : MonoBehaviour
 
     public void ChangeClothing(ClothItem newCloth)
     {
-        if (newCloth != null)
+        if (newCloth == null)
         {
-            if (_bodyPartRenderers.TryGetValue(newCloth.clothPart, out var bodyPartRenderer))
-            {
-                bodyPartRenderer.sprite = newCloth.sprite;
-            }
-            else
-            {
-                Debug.LogWarning($"ClothPart {newCloth.clothPart} is not mapped to any SpriteRenderer.");
-            }
+            Debug.LogWarning("New cloth item is null.");
+            return;
+        }
+        
+        if (_bodyPartRenderers.TryGetValue(newCloth.clothPart, out var bodyPartRenderer))
+        {
+            bodyPartRenderer.sprite = newCloth.sprite;
         }
         else
         {
-            Debug.LogWarning("New cloth item is null.");
+            Debug.LogWarning($"ClothPart {newCloth.clothPart} is not mapped to any SpriteRenderer.");
         }
     }
-    
-    
 }
