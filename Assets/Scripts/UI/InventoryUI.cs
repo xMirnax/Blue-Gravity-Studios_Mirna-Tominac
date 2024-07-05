@@ -1,8 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private ShopManager _shopManager;
@@ -10,6 +9,19 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private PlayerClothingManager _clothingManager;
 
     private void Start()
+    {
+        _shopManager.buyItem.AddListener(OnInventoryChanged);
+        _shopManager.sellItem.AddListener(OnInventoryChanged);
+        PopulateInventorySlot();
+    }
+
+    private void OnDestroy()
+    {
+        _shopManager.buyItem.RemoveListener(OnInventoryChanged);
+        _shopManager.sellItem.RemoveListener(OnInventoryChanged);
+    }
+
+    private void OnInventoryChanged()
     {
         PopulateInventorySlot();
     }
@@ -37,7 +49,6 @@ public class InventoryUI : MonoBehaviour
                 {
                     itemImage.sprite = clothItem.sprite;
                     ClothItem localItem = clothItem;
-                    
                     
                     button.onClick.RemoveAllListeners();
                     button.onClick.AddListener(() => _clothingManager.ChangeClothing(localItem));

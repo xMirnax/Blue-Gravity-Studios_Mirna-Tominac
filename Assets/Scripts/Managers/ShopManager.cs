@@ -11,7 +11,9 @@ public class ShopManager : MonoBehaviour
     private Inventory _shopInventory;
     public Inventory ShopInventory => _shopInventory;
     public Inventory PlayerInventory => _playerInventory;
-    
+
+    public UnityEvent buyItem;
+    public UnityEvent sellItem;
     private void Awake()
     {
         _playerInventory = Instantiate(_playerInventorySO);
@@ -26,6 +28,7 @@ public class ShopManager : MonoBehaviour
             _shopInventory.currency += item.buyPrice;
             _playerInventory.AddItem(item);
             _shopInventory.RemoveItem(item);
+            buyItem?.Invoke();
             Debug.Log($"Bought {item.itemName}. Remaining currency: {_playerInventory.currency}");
             return true;
         }
@@ -42,6 +45,7 @@ public class ShopManager : MonoBehaviour
             _shopInventory.currency -= item.sellPrice;
             _playerInventory.RemoveItem(item);
             _shopInventory.AddItem(item);
+            sellItem?.Invoke();
             Debug.Log($"Sold {item.itemName}. Remaining currency: {_playerInventory.currency}");
             return true;
     }

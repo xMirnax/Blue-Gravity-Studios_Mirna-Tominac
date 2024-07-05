@@ -1,18 +1,36 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ShopUI : MonoBehaviour
 {
     [SerializeField] private ShopManager _shopManager;
     [SerializeField] private Transform _slotsParent;
-
     [SerializeField] private Text _moneyText;
 
     private void Start()
     {
+        _shopManager.buyItem.AddListener(OnItemBought);
+        _shopManager.sellItem.AddListener(OnItemSold);
         PopulateBuySlot();
+    }
+
+    private void OnDestroy()
+    {
+        _shopManager.buyItem.RemoveListener(OnItemBought);
+        _shopManager.sellItem.RemoveListener(OnItemSold);
+    }
+
+    private void OnItemBought()
+    {
+        PopulateBuySlot();
+        _moneyText.text = _shopManager.PlayerInventory.currency + "$";
+    }
+
+    private void OnItemSold()
+    {
+        PopulateSellSlots();
+        _moneyText.text = _shopManager.PlayerInventory.currency + "$";
     }
 
     public void PopulateBuySlot()
@@ -28,9 +46,7 @@ public class ShopUI : MonoBehaviour
     private void PopulateShopSlots(List<ItemData> items, System.Action<ItemData, Transform> actionCallback, string actionLabel)
     {
         ClearSlots();
-        
-        _moneyText.text = _shopManager.PlayerInventory.currency + "$";
-        
+
         for (int i = 0; i < _slotsParent.childCount; i++)
         {
             Transform slot = _slotsParent.GetChild(i);
@@ -58,7 +74,7 @@ public class ShopUI : MonoBehaviour
 
                 itemButton.onClick.RemoveAllListeners();
                 itemButton.onClick.AddListener(() => actionCallback(item, slot));
-                
+
                 itemImage.gameObject.SetActive(true);
                 itemButton.gameObject.SetActive(true);
             }
@@ -87,17 +103,11 @@ public class ShopUI : MonoBehaviour
 
     private void BuyItem(ItemData item, Transform slot)
     {
-        if (_shopManager.BuyItem(item))
-        {
-            PopulateBuySlot();
-        }
+        _shopManager.BuyItem(item);
     }
 
     private void SellItem(ItemData item, Transform slot)
     {
-        if (_shopManager.SellItem(item))
-        {
-            PopulateSellSlots();
-        }
+        _shopManager.SellItem(item);
     }
 }
