@@ -24,13 +24,11 @@ public class ShopUI : MonoBehaviour
     private void OnItemBought()
     {
         PopulateBuySlot();
-        _moneyText.text = _shopManager.PlayerInventory.currency + "$";
     }
 
     private void OnItemSold()
     {
         PopulateSellSlots();
-        _moneyText.text = _shopManager.PlayerInventory.currency + "$";
     }
 
     public void PopulateBuySlot()
@@ -46,6 +44,7 @@ public class ShopUI : MonoBehaviour
     private void PopulateShopSlots(List<ItemData> items, System.Action<ItemData, Transform> actionCallback, string actionLabel)
     {
         ClearSlots();
+        _moneyText.text = _shopManager.PlayerInventory.currency + "$";
 
         for (int i = 0; i < _slotsParent.childCount; i++)
         {
