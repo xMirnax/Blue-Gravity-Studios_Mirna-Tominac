@@ -16,4 +16,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d3c77cf8f85c804c8aa69936fe974d3, type: 2}
   - {fileID: 11400000, guid: bce2690cf2b89074aa707e604cdd00aa, type: 2}
   - {fileID: 11400000, guid: d96b05adb74e4954daf4c8202147581c, type: 2}
+  - {fileID: 11400000, guid: f5d1f6524f924e24dbb1deeee83d3cec, type: 2}
+  - {fileID: 11400000, guid: 6da8ea7b815f826439217014a7e53c64, type: 2}
+  - {fileID: 11400000, guid: 88ee1fb530f78c3479e0fa2f46dafa12, type: 2}
+  - {fileID: 11400000, guid: 93a1bf855eeb3e1478681650e412cf44, type: 2}
   currency: 1240

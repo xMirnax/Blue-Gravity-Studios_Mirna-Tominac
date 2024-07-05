@@ -19,6 +19,10 @@ public class BuildingInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player left the building.");
+            if (_buildingCanvas == null)
+            {
+                return;
+            }
             _buildingCanvas.GetComponent<CanvasGroup>().alpha = 0;
         }
     }
