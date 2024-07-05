@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShopManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class ShopManager : MonoBehaviour
     private Inventory _shopInventory;
     public Inventory ShopInventory => _shopInventory;
     public Inventory PlayerInventory => _playerInventory;
-
+    
     private void Awake()
     {
         _playerInventory = Instantiate(_playerInventorySO);
